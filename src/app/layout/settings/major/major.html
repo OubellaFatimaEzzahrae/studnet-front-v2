@@ -1,4 +1,23 @@
-<h2>Gestion des Filières</h2>
+<!-- Bouton Ajouter -->
+<div class="header-section">
+    <h2 class="page-title">Liste des filières</h2>
+    <button pButton
+        label="Ajouter une filière"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onAdd()">
+</button>
+    <!-- ou standalone version : <p-button label="Ajouter une filière" icon="pi pi-plus" severity="success" /> -->
+  </div>
+<!-- Liste des filières -->
+<app-list (edit)="onEdit($event)"></app-list>
 
-<!-- On appelle le composant enfant -->
-<app-list></app-list>
+<!-- Formulaire d'ajout -->
+<app-edit
+  [visible]="showDialog"
+  [major]="selectedMajor"
+  (save)="onSave($event)"
+  (cancel)="onCancel()">
+</app-edit>
+
+

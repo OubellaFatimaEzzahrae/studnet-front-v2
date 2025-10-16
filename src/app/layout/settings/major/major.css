@@ -1,0 +1,143 @@
+/* Container global */
+:host {
+  display: block;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f8fafc, #e0e7ff);
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+  animation: fadeInDown 0.5s ease;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.page-title::before {
+  content: "📚";
+  font-size: 2rem;
+}
+
+/* Bouton Ajouter */
+::ng-deep .header-section .p-button-success {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+}
+
+::ng-deep .header-section .p-button-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+::ng-deep .header-section .p-button-success:active {
+  transform: translateY(0);
+}
+
+::ng-deep .header-section .p-button-success .p-button-icon {
+  font-size: 1.1rem;
+}
+
+/* Liste section avec espacement */
+app-list {
+  display: block;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  ::ng-deep .header-section .p-button-success {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* États de chargement (optionnel) */
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  color: #6366f1;
+}
+
+/* Empty state (optionnel) */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  color: #6b7280;
+  font-size: 1.1rem;
+}

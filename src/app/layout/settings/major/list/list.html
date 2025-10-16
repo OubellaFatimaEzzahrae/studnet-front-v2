@@ -1,24 +1,44 @@
-<p>list works!</p>
+<div class="majors-container">
+  <!-- Bouton d'ajout -->
 
-<p-table [value]="majors">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <th>Nom</th>
-      <th>Filière</th>
-      <th>Actions</th>
-    </tr>
-  </ng-template>
+  <!-- Tableau -->
+  <p-table
+    [value]="majors"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    class="p-datatable-striped p-datatable-sm"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Description</th>
+        <th style="text-align:center;">Actions</th>
+      </tr>
+    </ng-template>
 
-  <ng-template pTemplate="body" let-major>
-    <tr>
-      <td>{{ major.id }}</td>
-      <td>{{ major.name }}</td>
-      <td>{{ major.description }}</td>
-      <td>
-        <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success"></button>
-        <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+    <ng-template pTemplate="body" let-major>
+      <tr>
+        <td>{{ major.id }}</td>
+        <td>{{ major.code }}</td>
+        <td>{{ major.description }}</td>
+        <td class="action-buttons">
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-text p-button-success"
+            (click)="onEditClick(major)"  
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-text p-button-danger"
+          ></button>
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

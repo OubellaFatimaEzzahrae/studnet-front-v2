@@ -5,6 +5,10 @@ import { Edit } from './major/edit/edit';
 import { List } from './major/list/list';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 
 
@@ -16,11 +20,16 @@ import { ButtonModule } from 'primeng/button';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    DialogModule,
+    InputTextModule,
     TableModule,
     ButtonModule
   ],
    exports: [
-    Major
+    Major, 
+    Edit,
+    List
   ]
 })
 export class SettingsModule { }
