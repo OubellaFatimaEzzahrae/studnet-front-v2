@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/majors', pathMatch: 'full' }, // redirection par défaut
+  { path: '', redirectTo: '/majors', pathMatch: 'full' },
   {
     path: 'majors',
     loadChildren: () => import('./layout/settings/settings-module').then(m => m.SettingsModule)
   },
-  { path: '**', redirectTo: '/settings' } // route inconnue
+  {
+    path: 'students',
+    loadChildren: () => import('./layout/student/student-module').then(m => m.StudentModule)
+  },
+  { path: '**', redirectTo: '/majors' } // toutes les routes inconnues redirigent vers Majors
 ];
 
 @NgModule({

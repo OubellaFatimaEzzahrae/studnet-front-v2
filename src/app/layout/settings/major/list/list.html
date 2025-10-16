@@ -12,7 +12,7 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th>ID</th>
+        <th></th>
         <th>Code</th>
         <th>Description</th>
         <th style="text-align:center;">Actions</th>
@@ -21,7 +21,7 @@
 
     <ng-template pTemplate="body" let-major>
       <tr>
-        <td>{{ major.id }}</td>
+        <td></td>
         <td>{{ major.code }}</td>
         <td>{{ major.description }}</td>
         <td class="action-buttons">
@@ -31,11 +31,14 @@
             class="p-button-rounded p-button-text p-button-success"
             (click)="onEditClick(major)"  
           ></button>
-          <button
-            pButton
+          <button pButton
             icon="pi pi-trash"
             class="p-button-rounded p-button-text p-button-danger"
-          ></button>
+            pTooltip="Supprimer"
+            tooltipPosition="top"
+            (click)="onDeleteClick(major)">
+          </button>
+
         </td>
 
       </tr>

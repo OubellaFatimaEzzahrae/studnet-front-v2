@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutModule } from './layout-module';
+import { StudentModule } from './student/student-module';
 
 const routes: Routes = [
-  { path: '', component: LayoutModule, children: [
-      { path: '', redirectTo: 'majors', pathMatch: 'full' } // par défaut, charge majors
+  { path: '', component: StudentModule, children: [
+      { path: '', redirectTo: 'students', pathMatch: 'full' } // par défaut, charge students
   ]}
 ];
 

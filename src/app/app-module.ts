@@ -6,8 +6,8 @@ import { App } from './app';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
-import { SettingsModule } from './layout/settings/settings-module';
 import { LayoutModule } from './layout/layout-module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { LayoutModule } from './layout/layout-module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -26,7 +26,9 @@ import { LayoutModule } from './layout/layout-module';
             theme: {
                 preset: Aura
             }
-        })
+        }),
+    provideHttpClient(withInterceptorsFromDi()) // ✅ nouvelle méthode propre
+
   ],
   bootstrap: [App]
 })

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MajorService } from '../../../shared/service/major.service';
+import { List } from './list/list';
 
 @Component({
   selector: 'app-major',
@@ -8,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './major.css'
 })
 export class Major {
+  @ViewChild(List) listComponent!: List;
   showDialog = false;  // formulaire caché par défaut
   selectedMajor: any = null;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private majorService: MajorService) {}
 
   // ouvre le formulaire pour ajouter
   onAdd() {
@@ -20,28 +23,36 @@ export class Major {
     this.showDialog = true;      // affiche le formulaire
   }
 
- // Sauvegarder
+  // Sauvegarde
   onSave(major: any) {
-    if (this.selectedMajor?.id) {
-      // Si id existe, c'est une édition
-      console.log('Édité :', major);
-      // Ici, tu peux appeler ton API PUT /majors/:id
+    if (this.selectedMajor) {
+      // édition
+       this.majorService.update(this.selectedMajor.id, major).subscribe({
+      next: () => {
+        this.showDialog = false;   // ferme le formulaire
+        this.listComponent.loadMajors(); // recharge la liste
+      },
+      error: (err) => console.error(err)
+    });
     } else {
-      // Sinon, c'est un ajout
-      console.log('Ajouté :', major);
-      // Ici, tu peux appeler ton API POST /majors
+      // ajout
+      this.majorService.create(major).subscribe({
+        next: () => {
+          this.showDialog = false; // ferme le formulaire
+          this.listComponent.loadMajors()
+        },
+        error: (err) => console.error(err)
+      });
     }
-
-    this.showDialog = false; // ferme le formulaire
   }
-  
-   // Éditer une filière existante
+
+  // Éditer une filière existante
   onEdit(major: any) {
     this.router.navigate(['/majors/edit', major.id]);
     this.selectedMajor = { ...major }; // copie de la filière à éditer
     this.showDialog = true;            // ouvre le dialogue
   }
-
+  
 
   // annule et ferme le formulaire
   onCancel() {

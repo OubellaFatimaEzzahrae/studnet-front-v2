@@ -141,3 +141,17 @@ app-list {
   color: #6b7280;
   font-size: 1.1rem;
 }
+
+
+button.add-btn {
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(19, 14, 14, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
