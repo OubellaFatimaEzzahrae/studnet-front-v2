@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StudentModule } from './student/student-module';
+import { LayoutComponent } from './layout';
 
 const routes: Routes = [
-  { path: '', component: StudentModule, children: [
-      { path: '', redirectTo: 'students', pathMatch: 'full' } // par défaut, charge students
-  ]}
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'majors', loadChildren: () => import('../layout/settings/settings-module').then(m => m.SettingsModule) },
+      { path: 'students', loadChildren: () => import('../layout/student/student-module').then(m => m.StudentModule) },
+      { path: '', redirectTo: 'majors', pathMatch: 'full' }
+    ]
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,1 +1,51 @@
-<p>student-list works!</p>
+<div class="majors-container">
+  <!-- Bouton d'ajout -->
+
+  <!-- Tableau -->
+  <p-table
+    [value]="students"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    class="p-datatable-striped p-datatable-sm"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Année de Naissance</th>
+        <th>Filiére</th>
+        <th style="text-align:center;">Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td></td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.birthday }}</td>
+        <td>{{ student.major.code }}</td>
+
+        <td class="action-buttons">
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-text p-button-success"
+          ></button>
+          <button pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-text p-button-danger"
+            pTooltip="Supprimer"
+            tooltipPosition="top"
+            >
+          </button>
+
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

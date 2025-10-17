@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MajorService } from '../../../../shared/service/major.service';
 import { Major } from '../../../../shared/model/major.model';
+import { MajorService } from '../../../../shared/service/major/major.service';
 
 @Component({
   selector: 'app-list',

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MajorService } from '../../../shared/service/major.service';
 import { List } from './list/list';
+import { MajorService } from '../../../shared/service/major/major.service';
 
 @Component({
   selector: 'app-major',

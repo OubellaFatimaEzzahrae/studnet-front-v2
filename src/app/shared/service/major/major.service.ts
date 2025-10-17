@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Major } from '../model/major.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { API_BASE_URL } from '../constant/constants';
+import { API_BASE_URL } from '../../constant/constants';
+import { Major } from '../../model/major.model';
 
 @Injectable({
   providedIn: 'root'
