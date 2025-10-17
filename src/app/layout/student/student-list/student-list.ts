@@ -28,6 +28,7 @@ export class StudentList {
 
     // quand on clique sur le crayon
   onEditClick(student: Student) {
+    console.log('Modification de l\'étudiant avec id :', student.id);
     this.edit.emit(student);
   }
   

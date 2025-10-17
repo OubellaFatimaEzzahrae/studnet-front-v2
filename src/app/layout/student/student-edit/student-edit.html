@@ -1,1 +1,70 @@
-<p>student-edit works!</p>
+<p-dialog
+header="{{ student ? 'Modifier l\'étudiant' : 'Ajouter un étudiant' }}"
+[(visible)]="visible"
+[modal]="true"
+[closable]="false"
+[style]="{ width: '450px' }"
+>
+<form [formGroup]="form" class="p-fluid">
+    <div>
+      <label for="major" class="block mb-1 font-medium">Filière</label>
+      <p-select
+        id="major"
+        [options]="majors"
+        formControlName="major"
+        optionLabel="code"
+        optionValue="id"
+        placeholder="Choisir une filière"
+        class="w-full"
+      ></p-select>
+    </div>
+    <div>
+        <label for="firstName" class="block mb-1 font-medium">Prénom</label>
+        <input
+        pInputText
+        id="firstName"
+        formControlName="firstName"
+        class="w-full"
+      />
+    </div>
+
+    <div>
+      <label for="lastName" class="block mb-1 font-medium">Nom</label>
+      <input
+        pInputText
+        id="lastName"
+        formControlName="lastName"
+        class="w-full"
+      />
+    </div>
+
+    <div>
+      <label for="birthday" class="block mb-1 font-medium">Année de naissance</label>
+      <input
+        pInputText
+        id="birthday"
+        formControlName="birthday"
+        class="w-full"
+      />
+    </div>
+
+
+    <div class="flex justify-end gap-2 mt-4">
+      <button
+        pButton
+        label="Annuler"
+        icon="pi pi-times"
+        class="p-button-text"
+        (click)="onCancel()"
+      ></button>
+      <button
+        pButton
+        label="Enregistrer"
+        icon="pi pi-check"
+        class="p-button-success"
+        (click)="onSave()"
+        [disabled]="form.invalid"
+      ></button>
+    </div>
+  </form>
+</p-dialog>

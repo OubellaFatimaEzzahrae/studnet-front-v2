@@ -23,6 +23,7 @@ export class StudentService {
   }
 
   update(id: number, student: Student): Observable<Student> {
+    console.log('service Data:', student);
     return this.http.put<Student>(`${this.baseUrl}/${id}`, student).pipe(catchError(this.handleError));
   }
 

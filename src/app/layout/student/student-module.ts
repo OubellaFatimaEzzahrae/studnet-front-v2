@@ -4,6 +4,11 @@ import { StudentEdit } from './student-edit/student-edit';
 import { StudentList } from './student-list/student-list';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { Student } from './student';
+import { SelectModule } from 'primeng/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -11,15 +16,21 @@ import { ButtonModule } from 'primeng/button';
   declarations: [
     StudentEdit,
     StudentList,
+    Student
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    DialogModule,
+    InputTextModule,
     TableModule,
     ButtonModule,
+    SelectModule
   ],
   exports: [
     StudentEdit,
-    StudentList
+    StudentList,
+    Student
   ]
 })
 export class StudentModule { }

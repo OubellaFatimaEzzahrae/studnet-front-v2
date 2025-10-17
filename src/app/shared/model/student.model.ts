@@ -1,4 +1,4 @@
-import { Major } from "../../layout/settings/major/major";
+import { Major } from "./major.model";
 
 export interface Student {
     id?: number;

@@ -34,13 +34,14 @@
             pButton
             icon="pi pi-pencil"
             class="p-button-rounded p-button-text p-button-success"
+            (click)="onEditClick(student)"  
           ></button>
           <button pButton
             icon="pi pi-trash"
             class="p-button-rounded p-button-text p-button-danger"
             pTooltip="Supprimer"
             tooltipPosition="top"
-            >
+            (click)="onDeleteClick(student)">
           </button>
 
         </td>

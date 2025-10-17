@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./layout/layout-module').then(m => m.LayoutModule)
+    loadChildren: () => import('./layout/layout-module').then(m => m.LayoutModule) //Lazy loading du module de mise en page
   }
 ];
 
