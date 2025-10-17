@@ -60,7 +60,9 @@ export class StudentEdit implements OnInit, OnChanges {
     if (this.form.valid) {
       const formData = {
         ...this.form.value,
-        id: this.student?.id // Inclure l'ID si c'est une modification
+        id: this.student?.id, // Inclure l'ID si c'est une modification
+        major: { id: this.form.value.major } // 🔥 ici la correction !
+
       };
       this.save.emit(formData);
       this.form.reset(); // Reset après sauvegarde
