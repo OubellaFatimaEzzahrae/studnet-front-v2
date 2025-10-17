@@ -9,6 +9,7 @@ import { SelectModule } from 'primeng/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { StudentRoutingModule } from './student-routing-module';
 
 
 
@@ -25,7 +26,8 @@ import { InputTextModule } from 'primeng/inputtext';
     InputTextModule,
     TableModule,
     ButtonModule,
-    SelectModule
+    SelectModule,
+    StudentRoutingModule
   ],
   exports: [
     StudentEdit,

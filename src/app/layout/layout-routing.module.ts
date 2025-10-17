@@ -3,17 +3,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout';
 
 const routes: Routes = [
-  {
-    path: '',
+  { 
+    path: '', 
     component: LayoutComponent,
     children: [
-      { path: 'majors', loadChildren: () => import('../layout/settings/settings-module').then(m => m.SettingsModule) },
-      { path: 'students', loadChildren: () => import('../layout/student/student-module').then(m => m.StudentModule) },
-      { path: '', redirectTo: 'majors', pathMatch: 'full' }
+      { 
+        path: 'majors', 
+        loadChildren: () => import('./settings/settings-module').then(m => m.SettingsModule)
+        // Correction: settings-module → settings.module
+      },
+      { 
+        path: 'students', 
+        loadChildren: () => import('./student/student-module').then(m => m.StudentModule)
+        // Correction: student-module → student.module
+      },
+      { 
+        path: '', 
+        redirectTo: 'majors', 
+        pathMatch: 'full' 
+      }
     ]
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

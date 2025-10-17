@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout';
 import { SettingsModule } from './settings/settings-module';
 import { StudentModule } from './student/student-module';
 import { RouterModule } from '@angular/router';
+import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
   declarations: [LayoutComponent],
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     SettingsModule,
-    StudentModule
+    StudentModule,
+    LayoutRoutingModule
   ],
   exports: [
     LayoutComponent,

@@ -31,7 +31,7 @@ export class StudentEdit implements OnInit, OnChanges {
     });
 
     // 2. Charger les filières
-    this.loadMajors();
+    this.loadMajors(); 
 
   }
 

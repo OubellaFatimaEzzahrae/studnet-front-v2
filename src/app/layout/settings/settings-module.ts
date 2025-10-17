@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { SettingsRoutingModule } from './settings-routing.module';
 
 
 
@@ -24,7 +25,8 @@ import { InputTextModule } from 'primeng/inputtext';
     DialogModule,
     InputTextModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    SettingsRoutingModule
   ],
    exports: [
     Major, 
