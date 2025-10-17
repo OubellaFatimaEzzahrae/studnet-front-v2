@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { List } from './list/list';
 import { MajorService } from '../../../shared/service/major/major.service';
@@ -7,9 +7,11 @@ import { MajorService } from '../../../shared/service/major/major.service';
   selector: 'app-major',
   standalone: false,
   templateUrl: './major.html',
-  styleUrl: './major.css'
+  styleUrl: './major.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Major {
+  //@ToDo: au lieu d'utiliser trouver autre solution
   @ViewChild(List) listComponent!: List;
   showDialog = false;  // formulaire caché par défaut
   selectedMajor: any = null;

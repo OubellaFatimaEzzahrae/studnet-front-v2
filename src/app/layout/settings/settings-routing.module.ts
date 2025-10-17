@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { Major } from './major/major';
 
 const routes: Routes = [
-  { path: '', component: Major },           // Liste des filières
-/*   { path: 'add', component: Edit },         // Formulaire d'ajout
-  { path: 'edit/:id', component: Edit }   */   // Formulaire d'édition
+  { 
+    path: '', 
+    component: Major 
+  }
 ];
 
 @NgModule({

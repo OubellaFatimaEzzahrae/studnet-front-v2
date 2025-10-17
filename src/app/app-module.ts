@@ -8,16 +8,21 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { LayoutModule } from './layout/layout-module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { GenericForm } from './shared/components/generic-form/generic-form';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
   declarations: [
     App,
+    GenericForm,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+    TableModule
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -27,8 +32,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
                 preset: Aura
             }
         }),
-    provideHttpClient(withInterceptorsFromDi()) // ✅ nouvelle méthode propre
-
+    provideHttpClient(withInterceptorsFromDi()), // ✅ nouvelle méthode propre
   ],
   bootstrap: [App]
 })

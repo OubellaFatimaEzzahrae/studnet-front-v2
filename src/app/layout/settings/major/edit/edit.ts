@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-edit',
@@ -7,8 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './edit.css'
 })
 export class Edit {
-  @Input() visible = false;              // affichage du dialogue
-  @Input() major: any = null;            // données de la filière (pour édition)
+  /**@Input() Communication Parent => Enfant */
+  @Input() visible = false;          // contrôle la visibilité du dialogue
+  @Input() major: any = null;        // données de la filière à éditer
+  input1 = input('');
+  /**@Output() Communication Enfant => Parent */
   @Output() save = new EventEmitter<any>();
   @Output() cancel = new EventEmitter<void>();
 

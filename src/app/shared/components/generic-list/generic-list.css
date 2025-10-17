@@ -1,0 +1,198 @@
+/* Container principal */
+.majors-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Section header avec titre et bouton */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: -0.5px;
+}
+
+.add-btn {
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(12, 12, 12, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Styles du tableau */
+::ng-deep .p-datatable {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+::ng-deep .p-datatable .p-datatable-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border: none;
+}
+
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1.2rem 1rem;
+  border: none;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e9ecef;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
+  background: #f8f9fa !important;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  padding: 1.2rem 1rem;
+  font-size: 0.95rem;
+  color: #495057;
+  border: none;
+}
+
+/* Boutons d'actions */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .action-buttons .p-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .action-buttons .p-button:hover {
+  transform: scale(1.15);
+}
+
+::ng-deep .action-buttons .p-button-success:hover {
+  background: rgba(34, 197, 94, 0.1) !important;
+}
+
+::ng-deep .action-buttons .p-button-danger:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Pagination */
+::ng-deep .p-paginator {
+  background: white;
+  border-top: 2px solid #e9ecef;
+  padding: 1rem;
+  border-radius: 0 0 12px 12px;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+  border-radius: 8px;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.25rem;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page:hover {
+  background: #667eea;
+  color: white;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Animation pour les lignes du tableau */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  animation: fadeInUp 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .majors-container {
+    padding: 1rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+
+  ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+  ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Badge pour les statuts (si vous en ajoutez) */
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
