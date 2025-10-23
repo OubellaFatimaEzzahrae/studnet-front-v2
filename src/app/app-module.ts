@@ -21,8 +21,7 @@ import { TableModule } from 'primeng/table';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    TableModule
-
+    TableModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

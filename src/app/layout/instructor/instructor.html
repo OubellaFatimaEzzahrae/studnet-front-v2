@@ -1,0 +1,9 @@
+<p>instructor works!</p>
+<app-generic-list 
+  [headers]="headers" 
+  [data]="data"
+  [actions]="actions"
+  [showActions]="true"
+  (onAction)="handleAction($event)"
+  [structureField]="studentStructure"
+></app-generic-list>

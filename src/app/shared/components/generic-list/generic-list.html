@@ -3,38 +3,37 @@
   <!-- Bouton d'ajout -->
 
   <!-- Tableau -->
-<p-table
-  [value]="items"
-  [paginator]="true"
-  [rows]="5"
-  [rowsPerPageOptions]="[5,10,20]"
-  [tableStyle]="{ 'min-width': '60rem' }"
-  class="p-datatable-striped p-datatable-sm"
+  <p-table
+    [value]="data"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    class="p-datatable-striped p-datatable-sm"
   >
     <ng-template pTemplate="header">
       <tr>
-        <th></th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Année de Naissance</th>
-        <th>Filiére</th>
-        <th style="text-align:center;">Actions</th>
+        @for (header of headers; track $index) {
+          <th>{{ header }}</th>
+        }
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-item>
-      <tr>
-        <td></td>
-        <td>{{ item.nom }}</td>
-        <td>{{ item.prenom }}</td>
-        <td>{{ item.anneeNaissance }}</td>
-        <td>{{ item.filiere }}</td>
-
-        <td class="action-buttons">
-
+    <tr>
+      @for (col of structureField; track $index) {
+        <td>
+          @switch (col.type) {
+            @case ('string') {
+              {{ item[col.field] }}
+            }
+            @case ('object') {
+              {{ item[col.field]?.[col.child || ''] }}
+            }
+          }
         </td>
-
-      </tr>
-    </ng-template>
+      }
+    </tr>
+  </ng-template>
   </p-table>
 </div>

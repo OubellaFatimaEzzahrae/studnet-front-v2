@@ -13,12 +13,12 @@ import { LayoutRoutingModule } from './layout-routing.module';
     RouterModule,
     SettingsModule,
     StudentModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
   ],
   exports: [
     LayoutComponent,
     SettingsModule,
-    StudentModule
+    StudentModule,
   ]
 })
 export class LayoutModule { }
